@@ -1,4 +1,4 @@
-#!/bin/bash
+\#!/bin/bash
 
 echo -ne "\n"
 
@@ -29,7 +29,6 @@ array[((count++))]=${res[1]}
 array[((count++))]=${res[2]}
 array[((count++))]=${res[3]}
 array[((count++))]=${res[4]}
-echo "Index Numbers : ${!array[@]}"
 
 echo "Array Is ${array[@]}"
 for ((i = 0; i<4-1; i++))
