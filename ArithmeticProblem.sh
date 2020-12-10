@@ -11,7 +11,7 @@ echo "The Numbers Are $a $b $c"
 p=$(( a+(b*c) ))
 q=$(( (a*b)+c ))
 r=$(( c+(a/b) ))
-s=$(( a%(b/c) ))
+s=$(( a%b/c ))
 
 
 echo "The Result is" $p
@@ -33,3 +33,20 @@ array[((count++))]=${res[4]}
 echo -ne "\n Index Numbers : ${!array[@]}"
 
 echo -ne "\n Index Numbers : ${array[@]}"
+
+for ((i = 0; i<4; i++))
+do
+
+    for((j = 0; j<4-i-1; j++))
+    do
+
+        if [ ${array[$j]} -gt ${array[$((j+1))]} ]
+        then
+            # swap
+            temp=${array[j]}
+            array[j]=${array[$((j+1))]}
+            array[$((j+1))]=$temp
+        fi
+    done
+done
+echo "sorted array is ${array[@]}"
