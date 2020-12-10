@@ -20,7 +20,6 @@ echo "The Result is" $r
 echo "The Result is" $s
 
 declare -A res
-
 res[0]=$p
 res[1]=$q
 res[2]=$r
@@ -30,17 +29,15 @@ array[((count++))]=${res[1]}
 array[((count++))]=${res[2]}
 array[((count++))]=${res[3]}
 array[((count++))]=${res[4]}
-echo -ne "\n Index Numbers : ${!array[@]}"
 
-echo "Array is ${array[@]}"
-
-for ((i = 0; i<4; i++))
+echo "Array Is ${array[@]}"
+for ((i = 0; i<4-1; i++))
 do
 
     for((j = 0; j<4-i-1; j++))
     do
 
-        if [ ${array[$j]} -gt ${array[$((j+1))]} ]
+        if [ ${array[$j]} -lt ${array[$((j+1))]} ]
         then
             # swap
             temp=${array[j]}
@@ -49,4 +46,8 @@ do
         fi
     done
 done
-echo "sorted array is ${array[@]}"
+for ((i=0; i<4; i++))
+do
+	array2[((count2++))]=${array[i]}
+done
+echo "sorted array is ${array2[@]}"
